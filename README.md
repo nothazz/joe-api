@@ -6,7 +6,7 @@
 - Clone repository
   
 ```javascript
-npm install package-lock.json",
+npm install
 ```
 
 # 🚧 API Routes 🚧
