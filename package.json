@@ -1,0 +1,19 @@
+{
+  "name": "joe-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nothazz/joe-api.git"
+  },
+  "private": true,
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

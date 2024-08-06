@@ -1,2 +1,2 @@
 # joe-api
-An rest api for sending random joe (the emoji)
+A rest api for sending random joe (the emoji)

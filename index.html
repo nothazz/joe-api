@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hi random joe</title>
+</head>
+
+<style>
+    body {
+        background: black;
+        color: white;
+        font-family: Arial;
+    }
+
+    .joeBox {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        flex-direction: column;
+        border-radius: 10%;
+    }
+</style>
+
+<body>
+
+<div class="joeBox">
+    <h1 class="box" id="title"></h1>
+    <div id="message"></div>
+</div>
+
+<script>
+    const apiUrl = 'http://localhost:3000/joe';
+
+    async function fetchMessage() {
+        try {
+            const response = await fetch(apiUrl);
+            if (response.ok) {
+                const responseData = await response.json();
+                if (responseData.data && responseData.data.message && responseData.data.title) {
+                    const title = responseData.data.title;
+                    const imageUrl = responseData.data.message;
+
+                    const titleElement = document.getElementById('title');
+                    const messageDiv = document.getElementById('message');
+
+                    titleElement.textContent = title;
+
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.alt = 'Fetched Image';
+
+                    messageDiv.innerHTML = '';
+                    messageDiv.appendChild(imgElement);
+                } else {
+                    console.error('Unexpected response structure:', responseData);
+                }
+            } else {
+                console.error('Failed to fetch message:', response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    fetchMessage();
+</script>
+</body>
+</html>
