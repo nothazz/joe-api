@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title id="title"></title>
+    <title>A random Joe</title>
 </head>
 
 <style>
@@ -34,6 +34,17 @@
     span {
         color: yellow;
     }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .list p {
+        margin: 0;
+        padding: 0;
+    }
 </style>
 
 <body>
@@ -43,7 +54,12 @@
 <div class="joeBox">
     <h1 class="box" id="title"></h1>
     <div id="message"></div>
+
+    <div class="list">
+        <p>Drinking beer: <span id="drinkingBeer"></span>%</p>
+    </div>
 </div>
+
 
 <script>
     const apiUrl = 'http://localhost:3000/joe';
@@ -53,14 +69,17 @@
             const response = await fetch(apiUrl);
             if (response.ok) {
                 const responseData = await response.json();
-                if (responseData.data && responseData.data.message && responseData.data.title) {
+                if (responseData.data && responseData.data.message && responseData.data.title && responseData.data.abilities.drinkingBeer) {
                     const title = responseData.data.title;
                     const imageUrl = responseData.data.message;
+                    const drinkingBeer = responseData.data.abilities.drinkingBeer
 
                     const titleElement = document.getElementById('title');
                     const messageDiv = document.getElementById('message');
+                    const drinkingBeerSpan = document.getElementById('drinkingBeer');
 
                     titleElement.textContent = title;
+                    drinkingBeerSpan.textContent = drinkingBeer;
 
                     const imgElement = document.createElement('img');
                     imgElement.src = imageUrl;
