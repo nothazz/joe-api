@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>hi random joe</title>
+    <title id="title"></title>
 </head>
 
 <style>
@@ -26,10 +26,20 @@
         flex-direction: column;
         border-radius: 10%;
     }
+
+    .welcome-msg {
+        font-size: 110%;
+        font-weight: 600;
+    }
+    span {
+        color: yellow;
+    }
 </style>
 
 <body>
-
+<div class="welcome-msg">
+    <p>Have an <span>en-joe-able</span> day!!!</p>
+</div>
 <div class="joeBox">
     <h1 class="box" id="title"></h1>
     <div id="message"></div>

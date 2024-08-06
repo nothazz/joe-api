@@ -12,7 +12,8 @@ module.exports = function(server) {
     const titles = [
         'Hello world',
         'A random joe',
-        'Joe appeared'
+        'Joe appeared',
+        'Joe Joe Joe'
     ]
 
 
